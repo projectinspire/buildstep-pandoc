@@ -16,7 +16,7 @@ Usage
 Create a `Dockerfile` similar to the following in your application code folder 
 (this example is for a typical Django app):
 
-	FROM tutum/buildstep
+	FROM projectinspire/buildstep-pandoc
 	EXPOSE 8000
 	CMD ["python", "manage.py", "runserver", "8000"]
 
@@ -45,7 +45,7 @@ like the following:
 
 you can use it by defining the following `Dockerfile` instead:
 
-	FROM tutum/buildstep
+	FROM projectinspire/buildstep-pandoc
 	EXPOSE 8000
 	CMD ["/start", "web"]
 
@@ -73,9 +73,9 @@ you can specify the process type name as the run command.
 Otherwise, you can specify the actual command used to launch your application as the run command. For example:
 
 	# Without a Procfile
-	docker run -d -p 8000 -e GIT_REPO=https://github.com/fermayo/hello-world-django.git tutum/buildstep python manage.py runserver 8000
+	docker run -d -p 8000 -e GIT_REPO=https://github.com/fermayo/hello-world-django.git projectinspire/buildstep-pandoc python manage.py runserver 8000
 
 	# With a Procfile (or relying on the default Procfile provided by the buildpack)
-	docker run -d -p 8000 -e GIT_REPO=https://github.com/fermayo/hello-world-php.git tutum/buildstep /start web
+	docker run -d -p 8000 -e GIT_REPO=https://github.com/fermayo/hello-world-php.git projectinspire/buildstep-pandoc /start web
 
 No `docker build` required!
